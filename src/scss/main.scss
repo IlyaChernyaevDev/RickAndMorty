@@ -1,4 +1,9 @@
 @import "~normalize.css";
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
 
 .container {
   width: 1140px;
@@ -8,3 +13,5 @@
 @import 'blocks/header';
 @import 'blocks/characters';
 @import 'blocks/character-card';
+@import 'blocks/paginator';
+@import 'blocks/popup';

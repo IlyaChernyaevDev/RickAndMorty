@@ -1,14 +1,20 @@
 .characters {
-  
-  &__form-input {
-    display: block;
-    margin: 0 auto;
-    max-width: 500px;
-    width: 100%;
+
+  &__form {
+    &-search {
+      display: block;
+      margin: 0 auto;
+      max-width: 500px;
+      width: 100%;
+      &:-ms-clear {
+        width : 0;
+        height: 0;
+      }
+    }
   }
   &__cards {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
   }
 }

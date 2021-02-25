@@ -3,10 +3,10 @@ export default class Api {
     this.url = url;
   }
 
-  async getCharacters() {
-    return await fetch(this.url).
+  async getCharacters(characterName = '') {
+    return await fetch(this.url + characterName).
                   then(characters => characters.json()).
-                  then(characters => characters.results).
+                  then(characters => characters).
                   catch(error => console.log(`Не удалось получить персонажей. Ошибка: ${error}`));
   }
 }
