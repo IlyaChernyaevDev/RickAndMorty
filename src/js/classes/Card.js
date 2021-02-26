@@ -9,6 +9,7 @@ export default class Card {
                 <img src="${character.image}" alt="${character.name}" class="character-card__image">
               </div>
               <h2 class="character-card__name">${character.name}</h2>
+              <p class="character-card__origin">Origin: <br>${character.origin.name}</p>
             </div>`;
   }
 
@@ -46,8 +47,3 @@ export default class Card {
   }
 
 }
-
-// {/* <p class="character-card__status_${character.status === 'Alive' ? 'alive' : 'dead'}">Status: ${character.status}</p>
-// <p class="character-card__gender">${character.gender}</p>
-// <p class="character-card__species">${character.species}</p>
-// <p class="character-card__type">${character.type}</p> */}

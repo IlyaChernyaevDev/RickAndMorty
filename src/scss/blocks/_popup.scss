@@ -9,3 +9,20 @@
   background-color: rgba(0, 0, 0, 0.7);
   opacity: 1;
 }
+
+.character-popup {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    // width: 44rem;
+    width: 30%;
+    padding: 1rem 0.5rem 4rem;
+    background-color: #ffffff;
+    &__image {
+      display: block;
+      margin: 0 auto;
+      border-radius: 100%;
+    }
+}
