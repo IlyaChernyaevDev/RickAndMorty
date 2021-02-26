@@ -1,6 +1,7 @@
 export default class Card {
-  constructor(parentElement) {
+  constructor(parentElement, paginator) {
     this.parentElement = parentElement;
+    this.paginator = paginator;
   }
 
   createCharecterCard(character) {
@@ -17,33 +18,14 @@ export default class Card {
     this.parentElement.innerHTML = '';
 
     charactersData.then(characters => {
-      this.addPaginators(document.querySelector('.paginator'), this.createPaginatorLinks(characters.info));
+
+      this.paginator.addPaginators(this.paginator.createPaginator(characters.info));
 
       for(let index in characters.results) {
         this.parentElement.insertAdjacentHTML('beforeend', this.createCharecterCard(characters.results[index]));
       }
 
     });
-  }
-
-  createPaginatorLinks(charactersInfo) {
-    const numberPages = charactersInfo.pages;
-
-    if(!charactersInfo.next && !charactersInfo.prev) return '';
-
-    const pageUrl = charactersInfo.next ? charactersInfo.next : charactersInfo.prev;
-    const paginatorArray = [];
-
-    for(let i = 0, j = 1; i <= numberPages - 1; i++,j++) {
-      paginatorArray.push(`<a href="${pageUrl.replace(/page=\d+/, `page=${j}`)}" class="paginator__page-number">${j}</a>`);
-    }
-
-    return paginatorArray.join('\n');
-  }
-
-  addPaginators(paginatorContainer, paginators) {
-    paginatorContainer.innerHTML = '';
-    paginatorContainer.insertAdjacentHTML('beforeend', paginators);
   }
 
 }
