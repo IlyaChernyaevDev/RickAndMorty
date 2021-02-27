@@ -1,12 +1,12 @@
 .character-card {
+  position: relative;
   text-align: center;
-  background-color: pink;
   border-radius: 30px;
   width: 250px;
+  padding: 0 5px 10px 5px;
   margin: 50px 10px 0 10px;
-  &:hover {
-    cursor: pointer;
-  }
+  background: #34EBBA;
+  min-height: 290px;
   &__image-wrapper {
     margin-top: 15px;
   }
@@ -17,7 +17,24 @@
     width: 60%;
     height: auto;
   }
-  &__status {
-    
+  &__name {
+    font-size: 30px;
+    margin: 15px 0 15px 0;
+  }
+  &__about {
+    position: absolute;
+    bottom: 7px;
+    left: 50%;
+    transform: translateX(-50%);
+    line-height: 30px;
+    width: 115px;
+    border: none;
+    border-radius: 50px;
+    font-size: 18px;
+    cursor: pointer;
+    outline: none;
+    padding: 6px;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(128,248,174,1) 0%, rgba(223,244,148,1) 90% );
+
   }
 }

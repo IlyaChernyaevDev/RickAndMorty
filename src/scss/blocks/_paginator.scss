@@ -1,9 +1,48 @@
 .paginator {
-  padding: 20px 0 20px 0;
-  margin: 0 auto;
-  &__page-number {
-    &_is-active {
-      background-color: red;
+  display: flex;
+  max-width: fit-content;
+  width: 100%;
+  margin: 20px auto 0 auto;
+  background: #fff;
+  border-radius: 50px;
+  padding: 5px;
+  &__page, span {
+    text-decoration: none;
+    color: black;
+    display: block;
+    line-height: 45px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    width: 45px;
+    height: 45px;
+    margin: 0 5px 0 5px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    &-next {
+      padding: 0 20px;
+      border-radius: 5px 25px 25px 5px;
+      &:hover {
+        background: #34EBBA;
+      }
+    }
+    &-previos {
+      padding: 0 20px;
+      border-radius: 25px 5px 5px 25px;
+      &:hover {
+        background: #34EBBA;
+      }
+    }
+    &-dots span {
+      font-size: 22px;
+      cursor: default;
+    }
+    &:hover {
+      color: #fff;
+      background: #34EBBA;
+    }
+    &-number_is-active {
+      background: #34EBBA;
     }
   }
 }

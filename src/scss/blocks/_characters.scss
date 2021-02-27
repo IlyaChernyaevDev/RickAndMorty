@@ -1,14 +1,25 @@
 .characters {
-
+  position: relative;
+  padding-bottom: 30px;
   &__form {
     &-search {
+      padding: 15px;
+      font-size: 18px;
+      font-weight: 400;
       display: block;
       margin: 0 auto;
       max-width: 500px;
       width: 100%;
+      border:none;
+      box-shadow: none;
+      border-radius: 50px;
       &:-ms-clear {
         width : 0;
         height: 0;
+        // display: none;
+      }
+      &:focus {
+        outline: none;
       }
     }
   }
@@ -16,5 +27,6 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    margin: 50px auto 50px 0;
   }
 }

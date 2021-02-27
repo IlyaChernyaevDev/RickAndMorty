@@ -16,7 +16,7 @@ import Paginator from './classes/Paginator';
   const characters = new Api(CHARACTER_URL);
   const paginator = new Paginator(paginatorContainer, characters);
   const charactersCard = new Card(cardsContainer, paginator);
-  const popupCharacter = new Popup(popupContainer, cardsContainer, new Api(`${CHARACTER_URL}/1`));
+  const popupCharacter = new Popup(popupContainer, cardsContainer, new Api(`${CHARACTER_URL}1`));
 
   charactersCard.addCharacterCards(characters.getCharacters());
   popupCharacter.addListenerPopup();
@@ -24,14 +24,16 @@ import Paginator from './classes/Paginator';
   paginatorContainer.addEventListener('click', function(event) {
     event.preventDefault();
     const target = event.target;
-    charactersCard.addCharacterCards(new Api(target.href).getCharacters());
+    if(target && target.matches('a.paginator__page')) {
+      charactersCard.addCharacterCards(new Api(target.href).getCharacters());
+    }
   });
 
-  // Sorry, but this character don't exist in multiverse
+  // 
   // Функционал для поиска и отрисовки карточек персонажей 
   searchForm.addEventListener('submit', function(event) {
     event.preventDefault();
-    console.log(searchInput.value);
+    charactersCard.addLoader();
     charactersCard.addCharacterCards(characters.getCharacters(`?name=${searchInput.value}`));
     searchInput.value = '';
   });

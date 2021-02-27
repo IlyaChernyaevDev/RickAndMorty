@@ -5,6 +5,12 @@
   font-family: 'Roboto', sans-serif;
 }
 
+.root {
+  min-height: 100vh;
+  background: rgb(121,255,148);
+  background: radial-gradient(circle, rgba(121,255,148,1) 0%, rgba(0,255,252,1) 100%);
+}
+
 .container {
   width: 1140px;
   margin: 0 auto;
@@ -15,3 +21,5 @@
 @import 'blocks/character-card';
 @import 'blocks/paginator';
 @import 'blocks/popup';
+@import 'blocks/loader';
+@import 'media/media';
