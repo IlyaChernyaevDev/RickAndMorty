@@ -9,4 +9,10 @@ export default class Api {
                   then(characters => characters).
                   catch(error => console.log(`Не удалось получить персонажей. Ошибка: ${error}`));
   }
+
+  async getEpisode(episodeUrl) {
+    return await fetch(episodeUrl).
+                  then(episode => episode.json()).
+                  catch(error => console.log(`Не удалось получить серию. Ошибка: ${error}`));
+  }
 }

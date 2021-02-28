@@ -18,7 +18,6 @@ export default class Card {
 
     charactersData.
       then(characters => {
-        
         this.parentElement.innerHTML = '';
 
         this.paginator.addPaginators(this.paginator.createPaginator(characters.info));
@@ -28,10 +27,9 @@ export default class Card {
         }
 
       }).
-      catch(() => {
+      catch((error) => {
         this.parentElement.innerHTML = '';
         this.paginator.paginatorContainer.innerHTML = '';
-        console.log(this.paginator);
         this.parentElement.insertAdjacentHTML('beforeend', `<h2>Sorry, but this character don't exist in multiverse</h2>`);
       });
   }
@@ -41,7 +39,6 @@ export default class Card {
   }
 
   addLoader() {
-    console.log('work');
     this.parentElement.insertAdjacentHTML('beforeend', this.createLoader());
   }
 

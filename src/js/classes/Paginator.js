@@ -10,14 +10,19 @@ export default class Paginator {
     let url;
     let totalPages = characterInfo.pages;
 
+    this.paginatorContainer.style.padding = '5px';
+
     if(characterInfo.next) {
       matchArray = characterInfo.next.match(/\d+/);
       activePage = +matchArray[0] - 1;
       url = characterInfo.next.replace(/page=\d+/g, `page=1`);
-    } else {
+    } else if((characterInfo.prev)) {
       matchArray = characterInfo.prev.match(/\d+/);
       activePage = +matchArray[0] + 1;
       url = characterInfo.prev.replace(/page=\d+/g, `page=1`);
+    } else {
+      this.paginatorContainer.style.padding = '0';
+      return '';
     }
 
     let links = '';
@@ -43,7 +48,6 @@ export default class Paginator {
         pageLength += 1;
       } 
       if(activePage === pageLength) {
-        console.log(url);
         links += `<a href="${url.replace(/page=\d+/g, `page=${pageLength}`)}" class="paginator__page paginator__page-number paginator__page-number_is-active">${pageLength}</a>`;
         continue;
       }

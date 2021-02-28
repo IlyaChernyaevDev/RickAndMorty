@@ -14,14 +14,22 @@ export default class Popup {
   renderPopup(event) {
     event.preventDefault();
     if (event.target.matches('.character-card__about')) {
+
+      let character;
+
       const target = event.target.closest('.character-card');
 
       this.api.url = this.api.url.replace(/\d+/g, target.id);
-      console.log(`Popup class: ${this.api.url}`);
 
       this.api.getCharacters().
       then(characterInfo => {
-        this.popupContainer.insertAdjacentHTML('beforeend', this.createPopup(characterInfo));
+
+        character = characterInfo;
+
+        return this.api.getEpisode(characterInfo.episode[0]);
+      }).
+      then(episodeInfo => {
+        this.popupContainer.insertAdjacentHTML('beforeend', this.createPopup(character, episodeInfo.name));
       });
 
       this.openPopup(this.popupContainer);
@@ -30,22 +38,8 @@ export default class Popup {
 
 
 
-  // createPopup(characterInfo) {
-  //   return `<div class="character-popup">
-  //             <img src="${characterInfo.image}" alt="${characterInfo.name} image" class="character-popup__image">
-  //             <h2 class="character-popup__name">${characterInfo.name}</h2>
-  //             <div class="character-popup__description">
-  //               <p class="character-popup__status">Status: ${characterInfo.status}</p>
-  //               <p class="character-popup__species">Species: ${characterInfo.species}</p>
-  //               <p class="character-popup__gender">Gender: ${characterInfo.gender}</p>
-  //               <p class="character-popup__origin">Origin: ${characterInfo.origin.name}</p>
-  //               <p class="character-popup__location">Last known location: ${characterInfo.location.name}</p>
-  //               <p class="characets__episode">Number of episodes: ${characterInfo.episode.length}</p>
-  //             </div>
-  //           </div>`;
-  // }
 
-  createPopup(characterInfo) {
+  createPopup(characterInfo, firstEpisodeName) {
     return `<div class="character-popup">
               <img src="${characterInfo.image}" alt="${characterInfo.name} image" class="character-popup__image">
               <h2 class="character-popup__name">${characterInfo.name}</h2>
@@ -63,7 +57,7 @@ export default class Popup {
                 <p class="character-popup__parameter character-popup__parameter_bold">Number of episodes:</p>
                 <p class="character-popup__parameter">${characterInfo.episode.length}</p>
                 <p class="character-popup__parameter character-popup__parameter_bold">First seen in:</p>
-                <p class="character-popup__parameter">${characterInfo.episode.length}</p> 
+                <p class="character-popup__parameter">${firstEpisodeName}</p> 
               </div>
             </div>`;
   }

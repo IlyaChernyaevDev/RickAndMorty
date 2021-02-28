@@ -29,8 +29,6 @@ import Paginator from './classes/Paginator';
     }
   });
 
-  // 
-  // Функционал для поиска и отрисовки карточек персонажей 
   searchForm.addEventListener('submit', function(event) {
     event.preventDefault();
     charactersCard.addLoader();
