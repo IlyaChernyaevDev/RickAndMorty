@@ -7,9 +7,9 @@
   border-radius: 50px;
   padding: 5px;
   &__page, span {
+    display: block;
     text-decoration: none;
     color: black;
-    display: block;
     line-height: 45px;
     text-align: center;
     font-size: 18px;
@@ -23,14 +23,14 @@
       padding: 0 20px;
       border-radius: 5px 25px 25px 5px;
       &:hover {
-        background: #34EBBA;
+        background: $main-color;
       }
     }
     &-previos {
       padding: 0 20px;
       border-radius: 25px 5px 5px 25px;
       &:hover {
-        background: #34EBBA;
+        background: $main-color;
       }
     }
     &-dots span {
@@ -39,10 +39,10 @@
     }
     &:hover {
       color: #fff;
-      background: #34EBBA;
+      background: $main-color;
     }
     &-number_is-active {
-      background: #34EBBA;
+      background: $main-color;
     }
   }
 }

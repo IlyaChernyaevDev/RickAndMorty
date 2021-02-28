@@ -17,8 +17,35 @@
 }
 
 @media (max-width: 576px) {
+  .root {
+    padding: 0 10px;
+  }
   .container {
     max-width: 100%;
-    padding: 0 10px;
+  }
+  .characters {
+    &__form {
+      &-search {
+        width: 90%;
+      }
+    }
+  }
+  .character-popup {
+    width: 15rem;
+    &__description {
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 7px;
+    }
+    &__parameter {
+      font-size: 13px;
+    }
+  }
+  .paginator {
+    &__page, span {
+      display: none;
+      &-next, &-previos, &-number_is-active {
+        display: block;
+      }
+    }
   }
 }

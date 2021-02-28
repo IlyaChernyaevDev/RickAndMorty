@@ -19,7 +19,7 @@ export default class Card {
     charactersData.
       then(characters => {
         this.parentElement.innerHTML = '';
-
+        
         this.paginator.addPaginators(this.paginator.createPaginator(characters.info));
 
         for(let index in characters.results) {
@@ -27,10 +27,11 @@ export default class Card {
         }
 
       }).
-      catch((error) => {
+      catch(() => {
         this.parentElement.innerHTML = '';
         this.paginator.paginatorContainer.innerHTML = '';
-        this.parentElement.insertAdjacentHTML('beforeend', `<h2>Sorry, but this character don't exist in multiverse</h2>`);
+        this.paginator.paginatorContainer.style.padding = '0';
+        this.parentElement.insertAdjacentHTML('beforeend', `<h2 class="characters__error">Sorry, but this character don't exist in multiverse</h2>`);
       });
   }
 

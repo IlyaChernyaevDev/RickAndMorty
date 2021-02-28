@@ -29,7 +29,7 @@ export default class Popup {
         return this.api.getEpisode(characterInfo.episode[0]);
       }).
       then(episodeInfo => {
-        this.popupContainer.insertAdjacentHTML('beforeend', this.createPopup(character, episodeInfo.name));
+        this.popupContainer.insertAdjacentHTML('beforeend',this.createPopup(character, episodeInfo.name));
       });
 
       this.openPopup(this.popupContainer);
@@ -41,6 +41,7 @@ export default class Popup {
 
   createPopup(characterInfo, firstEpisodeName) {
     return `<div class="character-popup">
+              <span class="character-popup__close"></span>
               <img src="${characterInfo.image}" alt="${characterInfo.name} image" class="character-popup__image">
               <h2 class="character-popup__name">${characterInfo.name}</h2>
               <div class="character-popup__description">
@@ -66,10 +67,10 @@ export default class Popup {
     popup.style.display = 'block';
   }
 
-  closePopup(popup) {
-    if (popup && popup.matches('.popup')) {
-      popup.style.display = 'none';
-      this.removePopup(popup);
+  closePopup(target) {
+    if (target && (target.matches('.popup') || target.matches('.character-popup__close'))) {
+      this.popupContainer.style.display = 'none';
+      this.removePopup(this.popupContainer);
     }
   }
 

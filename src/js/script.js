@@ -25,6 +25,7 @@ import Paginator from './classes/Paginator';
     event.preventDefault();
     const target = event.target;
     if(target && target.matches('a.paginator__page')) {
+
       charactersCard.addCharacterCards(new Api(target.href).getCharacters());
     }
   });

@@ -2,10 +2,10 @@
   position: relative;
   text-align: center;
   border-radius: 30px;
-  width: 250px;
+  width: 240px;
   padding: 0 5px 10px 5px;
   margin: 50px 10px 0 10px;
-  background: #34EBBA;
+  background: $main-color;
   min-height: 290px;
   &__image-wrapper {
     margin-top: 15px;

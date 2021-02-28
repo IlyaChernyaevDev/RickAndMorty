@@ -36,7 +36,7 @@ export default class Paginator {
     if(activePage > 2) {
       links  += `<a href="${url.replace(/page=\d+/g, `page=${1}`)}" class="paginator__page paginator__page-number">1</a>`;
       if(activePage > 3) {
-        links += `<span class="paginator__dots">...</span>`;
+        links += `<span class="paginator__page paginator__page-dots">...</span>`;
       }
     }
 
