@@ -3,7 +3,7 @@ This app allows you to find any character and information about them from the TV
 
 [Check the Demo](https://ilyachernyaevdev.github.io/RickAndMorty/)
 
-![rim.gif] (https://github.com/IlyaChernyaevDev/RickAndMorty/tree/main/src/assets/rim.gif)
+![rim.gif](https://github.com/IlyaChernyaevDev/RickAndMorty/tree/main/src/assets/rim.gif)
 
 ## Requirements: 
 * Node.js 
